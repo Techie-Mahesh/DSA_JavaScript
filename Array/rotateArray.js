@@ -1,44 +1,30 @@
-Rotate a element for n times in the given Array
+let arr = [1, 2, 3, 4, 5, 6, 7];
+const rotateArray = (arr, k) => {
+  k = k % arr.length; // In case k is greater than array length
+  let pointer = 0;
+  let newArray = [];
+  for (let i = arr.length - k; i < arr.length; i++) {
+    newArray[pointer] = arr[i];
+    pointer++;
+  }
+  for (let i = 0; i < arr.length - k; i++) {
+    newArray[pointer] = arr[i];
+    pointer++;
+  }
+  return newArray;
+};
 
-I/P: 
-let arr =[1,2,3,4,5]
-let rotation = 2
-
-O/P:
-result = [3,4,5,1,2]
-
-
-
-
-const arr = [1,2,3,4,5] // [2,3,4,1]
-const n = arr.length
-let r = 2%n
-const temp = []
-for(let i = 0 ; i<r ; i++){
-    temp[i] = arr[i]
-}
-for (let i = r; i < n; i++) {
-  arr[i - r] = arr[i];
-}
-for (let i = n - r; i < n; i++) {
-    arr[3] = temp[0]
-  arr[i] = temp[i - (n - r)];
-}
-
-console.log("arr==>",arr)
-
-------------------------------------------------------------------------------------------------------
-let k =0
-let n = arr.length -1
-let d =6
-let temp=[]
-let d1= d%n
-for (let i=d1;i<=n;i++){
-    temp[k]=arr[i]
-    k++
-}
-for(let i=0; i<d1;i++){
-    temp[k]=arr[i]
-    k++
-}
-console.log(temp)
+const reverse = (nums, start, end) => {
+  while (start < end) {
+    let temp = nums[start];
+    nums[start++] = nums[end];
+    nums[end--] = temp;
+  }
+};
+const rotateArray2 = (arr, k) => {
+  reverse(arr, 0, arr.length - 1);
+  reverse(arr, 0, k - 1);
+  reverse(arr, k, arr.length - 1);
+  return arr;
+};
+console.log(rotateArray2(arr, 3));

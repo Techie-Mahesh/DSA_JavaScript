@@ -6,4 +6,9 @@ const countDigits = x => {
   }
   return count;
 };
-console.log(countDigits(4567));
+console.log(countDigits(80));
+
+const countDigits1 = x => {
+  return Math.floor(Math.log10(x) + 1);
+};
+console.log(countDigits1(801234));

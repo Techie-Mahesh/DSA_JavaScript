@@ -1,4 +1,4 @@
-Palindrome;
+// Palindrome;
 
 const palindrome1 = str => {
   let formattedString = str.toLowerCase().replace(/[^a-z0-9]/g, "");

@@ -5,12 +5,11 @@
 
 const perfectNumber = num => {
   let result = 1;
-  if (num < 0) return false;
+  if (num <= 1) return false;
   for (let i = 2; i <= Math.sqrt(num); i++) {
     if (num % i === 0) {
       result += i;
       if (num / i !== i) {
-        console.log(num / i);
         result += num / i;
       }
     }

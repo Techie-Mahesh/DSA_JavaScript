@@ -20,3 +20,26 @@ const isAnagram1 = (s, t) => {
 };
 
 console.log(isAnagram("anagram", "nagaram")); // true
+
+const isAnagramOptimised = (s, t) => {
+  if (s.length !== t.length) return false;
+
+  const charCount = {};
+
+  // Count the frequency of characters in the first string
+  for (let i = 0; i < s.length; i++) {
+    charCount[s[i]] = (charCount[s[i]] || 0) + 1;
+  }
+
+  // Decrease the frequency of characters based on the second string
+  for (let i = 0; i < t.length; i++) {
+    if (!charCount[t[i]]) return false; // If a character is not found or count is 0, not an anagram
+    charCount[t[i]]--;
+  }
+
+  // If all counts are zero, the strings are anagrams
+  return true;
+};
+
+console.log(isAnagram("anagram", "nagaram")); // true
+console.log(isAnagram("rat", "car")); // false

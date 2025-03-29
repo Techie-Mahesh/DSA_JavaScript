@@ -14,6 +14,8 @@ const rotateArray = (arr, k) => {
   return newArray;
 };
 
+// ----------------------------------------------------------------------
+
 const reverse = (nums, start, end) => {
   while (start < end) {
     let temp = nums[start];
@@ -21,10 +23,26 @@ const reverse = (nums, start, end) => {
     nums[end--] = temp;
   }
 };
+
 const rotateArray2 = (arr, k) => {
-  reverse(arr, 0, arr.length - 1);
-  reverse(arr, 0, k - 1);
-  reverse(arr, k, arr.length - 1);
+  reverse(arr, 0, arr.length - 1); // Reverse the entire array
+  reverse(arr, 0, k - 1); // Reverse the first k elements
+  reverse(arr, k, arr.length - 1); // Reverse the remaining elements
   return arr;
 };
-console.log(rotateArray2(arr, 3));
+// console.log(rotateArray2(arr, 3));
+
+// TC O(n) and SC O(1)
+
+// ---------------------------------------------------------------------
+
+const rotatearray3 = (arr, k) => {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArray[(i + k) % arr.length] = arr[i];
+  }
+  return newArray;
+};
+console.log(rotatearray3(arr, 3)); // [5, 6, 7, 1, 2, 3, 4]
+
+//  TC O(n) and SC O(n)

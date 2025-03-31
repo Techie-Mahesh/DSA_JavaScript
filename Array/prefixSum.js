@@ -26,3 +26,34 @@ const prefixSum = (arr, queries) => {
 
 // -------------------------------------------------------------------------------------------
 
+// We can optimize this using prefix sum array.
+
+const prefixSumOptimized = (arr, queries) => {
+  let prefixedArray = new Array(arr.length);
+  prefixedArray[0] = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    prefixedArray[i] = prefixedArray[i - 1] + arr[i];
+  }
+  for (let i = 0; i < queries.length; i++) {
+    let [l, r] = queries[i];
+    if (l === 0) {
+      console.log(prefixedArray[r]);
+    } else {
+      console.log(prefixedArray[r] - prefixedArray[l - 1]);
+    }
+  }
+};
+prefixSumOptimized(
+  [1, 2, 3, 4, 5],
+  [
+    [1, 3],
+    [2, 4]
+  ]
+); // 6, 12
+
+// T.c = max(O(n), O(q)) because we are iterating through the array to create the prefix sum array and then iterating through the queries to find the sum of elements in the range [L, R].
+// S.C = O(n) because we are using an extra array to store the prefix sum.
+
+// ------------------------------------------------------------------------------------------
+

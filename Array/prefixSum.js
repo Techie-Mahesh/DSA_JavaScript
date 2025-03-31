@@ -57,3 +57,29 @@ prefixSumOptimized(
 
 // ------------------------------------------------------------------------------------------
 
+// We can optimize this further by using the same array to store the prefix sum.
+// This will reduce the space complexity to O(1) because we are not using any extra space except for the input array.
+
+const prefixSumOptimizedUsingSameArray = (arr, queries) => {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] += arr[i - 1] || 0; // add the previous element to the current element
+  }
+  for (let i = 0; i < queries.length; i++) {
+    let [l, r] = queries[i];
+    if (l === 0) {
+      console.log(arr[r]);
+    } else {
+      console.log(arr[r] - arr[l - 1]);
+    }
+  }
+};
+prefixSumOptimizedUsingSameArray(
+  [1, 2, 3, 4, 5],
+  [
+    [1, 3],
+    [2, 4]
+  ]
+);
+
+// T.C = max(O(n), O(q)) because we are iterating through the array to create the prefix sum array and then iterating through the queries to find the sum of elements in the range [L, R].
+// S.C = O(1) because we are using the same array to store the prefix sum.

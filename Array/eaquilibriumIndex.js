@@ -26,3 +26,25 @@ console.log(equilibriumIndex([-3, 2, 4, -1])); // 2
 
 // -----------------------------------------------------------------------------------
 
+// Optimized approach
+
+const equilibriumIndexOptimized = arr => {
+  let prefixSum = new Array(arr.length);
+  prefixSum[0] = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    prefixSum[i] = prefixSum[i - 1] + arr[i];
+  }
+  for (let i = 0; i < arr.length; i++) {
+    let sl = 0;
+    let sr = 0;
+    if (i !== 0) {
+      sl = prefixSum[i - 1];
+    }
+    sr = prefixSum[arr.length - 1] - prefixSum[i];
+    if (sl === sr) {
+      return i;
+    }
+  }
+  return -1;
+};
+console.log(equilibriumIndexOptimized([-3, 2, 4, -1])); // 2

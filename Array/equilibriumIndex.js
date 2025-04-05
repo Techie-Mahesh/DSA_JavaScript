@@ -26,7 +26,7 @@ console.log(equilibriumIndex([-3, 2, 4, -1])); // 2
 
 // -----------------------------------------------------------------------------------
 
-// Optimized approach
+// Optimized approach ( T.C O(n) and S.C O(n) )
 
 const equilibriumIndexOptimized = arr => {
   let prefixSum = new Array(arr.length);
@@ -34,12 +34,10 @@ const equilibriumIndexOptimized = arr => {
   for (let i = 1; i < arr.length; i++) {
     prefixSum[i] = prefixSum[i - 1] + arr[i];
   }
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i++) {
     let sl = 0;
     let sr = 0;
-    if (i !== 0) {
-      sl = prefixSum[i - 1];
-    }
+    sl = prefixSum[i - 1];
     sr = prefixSum[arr.length - 1] - prefixSum[i];
     if (sl === sr) {
       return i;
@@ -48,3 +46,25 @@ const equilibriumIndexOptimized = arr => {
   return -1;
 };
 console.log(equilibriumIndexOptimized([-3, 2, 4, -1])); // 2
+
+// ------------------------------------------------------------------------------------
+// Optimized approach ( T.C O(n) and S.C O(1) )
+
+const equilibriumIndexOptimized2 = arr => {
+  let sum = 0;
+  let leftSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  for (let i = 0; i < arr.length; i++) {
+    sum -= arr[i];
+    if (leftSum === sum) {
+      return i;
+    }
+    leftSum += arr[i];
+  }
+};
+
+console.log(equilibriumIndexOptimized2([-3, 2, 4, -1])); // 2
+
+// ------------------------------------------------------------------------------------

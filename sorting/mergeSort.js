@@ -34,3 +34,4 @@ const mergeSort = (arr, low, high) => {
 };
 
 mergeSort([3, 2, 1, 5, 4], 0, 4); // [1, 2, 3, 4, 5]
+mergeSort(["123","Abc","12","abc","12345","abcd"], 0, 5); // ["123", "1234", "Abc", "abc", "abcd"]

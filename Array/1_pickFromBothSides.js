@@ -33,7 +33,6 @@ console.log(pickFromBothSides([5, 4, 3, 2, 1], 3)); // 12 (3+4+5)
 
 console.log("-------------------------------------------------");
 
-
 // Optimise approach: O(n) and space complexity: O(1)
 // Approach: carry forward approach : Use prefix sum to calculate the sum of elements from both ends of the array.
 
@@ -44,11 +43,11 @@ const pickFromBothSidesOptimized = (arr, k) => {
   }
   let max = sum;
   for (let i = 0; i < k; i++) {
-    sum = sum - arr[k - 1 - i] + arr[arr.length - k - i];
+    sum = sum - arr[k - 1 - i] + arr[arr.length - 1 - i];
+    max = Math.max(max, sum);
   }
-  max = Math.max(max, sum);
   return max;
 };
 
-console.log(pickFromBothSidesOptimized([5, 4, 3, 2, 1], 3)); // 12 (3+4+5)
+console.log(pickFromBothSidesOptimized([5, 4, 3, 2, 1, 4], 3)); // 12 (3+4+5)
 console.log("-------------------------------------------------");

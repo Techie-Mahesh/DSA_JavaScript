@@ -34,10 +34,10 @@ const equilibriumIndexOptimized = arr => {
   for (let i = 1; i < arr.length; i++) {
     prefixSum[i] = prefixSum[i - 1] + arr[i];
   }
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     let sl = 0;
     let sr = 0;
-    sl = prefixSum[i - 1];
+    sl = prefixSum[i - 1] || 0;
     sr = prefixSum[arr.length - 1] - prefixSum[i];
     if (sl === sr) {
       return i;

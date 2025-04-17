@@ -20,6 +20,7 @@ const countPairs = arr => {
 console.log(countPairs(["h", "b", "g", "a", "a", "g", "a", "g", "h", "g"])); // 8
 
 // ---------------------------------------------------------------------------
+
 // Optimized approach ( T.C O(n) and S.C O(n) )
 // The optimized approach is to use a single loop to count the number of "a"s and "g"s.
 //  create a prefix sum array to store the count of "g"s up to each index.

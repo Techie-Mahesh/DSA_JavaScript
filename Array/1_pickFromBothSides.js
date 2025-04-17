@@ -49,5 +49,5 @@ const pickFromBothSidesOptimized = (arr, k) => {
   return max;
 };
 
-console.log(pickFromBothSidesOptimized([5, 4, 3, 2, 1, 4], 3)); // 12 (3+4+5)
+console.log(pickFromBothSidesOptimized([5, 4, 3, 2, 6, 4], 3)); // 15 (5+4+6)
 console.log("-------------------------------------------------");

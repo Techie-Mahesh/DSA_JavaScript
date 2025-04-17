@@ -66,5 +66,6 @@ const equilibriumIndexOptimized2 = arr => {
 };
 
 console.log(equilibriumIndexOptimized2([-3, 2, 4, -1])); // 2
+console.log(equilibriumIndexOptimized2([1,2,3,-2,-3]))
 
 // ------------------------------------------------------------------------------------

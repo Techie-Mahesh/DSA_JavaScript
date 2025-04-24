@@ -38,5 +38,5 @@ const countElements2 = arr => {
   return arr.length - maxCount;
 };
 
-console.log(countElements2([7, 6, 1, 5, 3, 4, 6])); // 6
+console.log(countElements2([7, 6, 1, 5, 3, 4, 7])); // 5
 console.log(countElements2([1, 2, 3, 4, 5])); // 4

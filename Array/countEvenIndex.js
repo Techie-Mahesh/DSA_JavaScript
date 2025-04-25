@@ -11,4 +11,4 @@ const countEvenIndex = (arr, k) => {
   }
   return prefixSum[k];
 };
-console.log(countEvenIndex([1, 2, 3, 4, 5], 4)); // [1, 2, 3, 4, 5]
+console.log(countEvenIndex([1, 2, 3, 4, 5], 4)); // (1+3+5) = 9

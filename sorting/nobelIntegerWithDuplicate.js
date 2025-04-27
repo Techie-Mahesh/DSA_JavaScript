@@ -28,3 +28,25 @@ const nobelIntegerWithDuplicate = arr => {
 console.log(nobelIntegerWithDuplicate([1, -5, 3, 5, -10, 4])); // 5
 console.log(nobelIntegerWithDuplicate([1, 2, 0, 4, 5])); // 0
 console.log(nobelIntegerWithDuplicate([-10, 0, 2, 5, 2, 4, 4, 5])); // 4
+
+console.log("--------------------------------------------------------");
+
+// optimized version of the above code
+
+const nobelIntegerWithDuplicateOptimized = arr => {
+  arr = arr.sort();
+  let count = 0;
+  let uniqueElement = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (i > 0 && arr[i] !== arr[i - 1]) {
+      uniqueElement = i;
+    }
+    if (arr[i] === uniqueElement) {
+      count++;
+    }
+  }
+  return count;
+};
+console.log(nobelIntegerWithDuplicateOptimized([-10, 0, 2, 5, 2, 4, 4, 5]));
+console.log(nobelIntegerWithDuplicateOptimized([-10, 4, 5,7]));
+

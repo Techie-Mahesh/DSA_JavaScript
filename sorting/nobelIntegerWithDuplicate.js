@@ -6,6 +6,9 @@
 //  prefix Array:   [  0, 1, 2, 2, 4, 4, 6, 6]
 //  index:          [  0, 1, 2, 3, 4, 5, 6, 7]
 
+// Time complexity: O(nlogn) + O(n) = O(nlogn)
+// Space complexity: O(n)
+
 const nobelIntegerWithDuplicate = arr => {
   let sortedArray = arr.sort();
   let prefixArray = new Array(arr.length);
@@ -32,6 +35,9 @@ console.log(nobelIntegerWithDuplicate([-10, 0, 2, 5, 2, 4, 4, 5])); // 4
 console.log("--------------------------------------------------------");
 
 // optimized version of the above code
+// carry forward approach
+//  Time complexity: O(nlogn) + O(n) = O(nlogn)
+//  Space complexity: O(1)
 
 const nobelIntegerWithDuplicateOptimized = arr => {
   arr = arr.sort();
@@ -48,5 +54,4 @@ const nobelIntegerWithDuplicateOptimized = arr => {
   return count;
 };
 console.log(nobelIntegerWithDuplicateOptimized([-10, 0, 2, 5, 2, 4, 4, 5]));
-console.log(nobelIntegerWithDuplicateOptimized([-10, 4, 5,7]));
-
+console.log(nobelIntegerWithDuplicateOptimized([-10, 4, 5, 7]));

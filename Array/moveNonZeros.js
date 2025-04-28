@@ -23,4 +23,4 @@ const moveNonZeros = arr => {
   }
   return arr;
 };
-console.log(moveNonZeros([0, 1, 0, 3, 12]));
+console.log(moveNonZeros([0,0, 1, 0, 3, 12]));

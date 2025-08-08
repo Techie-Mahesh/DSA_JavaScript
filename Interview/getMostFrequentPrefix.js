@@ -1,5 +1,5 @@
 // Description: Given an array of strings, find the most frequent prefix among the strings.
-// Example: ["apple", "app", "apricot", "banana"]
+// Example: ["apple", "app", "appricot", "banana"]
 // output: "ap"->3
 
 const getMostFrequentPrefix = arr => {
@@ -26,4 +26,4 @@ const getMostFrequentPrefix = arr => {
   );
   return maxPrefix;
 };
-console.log(getMostFrequentPrefix(["apple", "app", "apricot", "banana"]));
+console.log(getMostFrequentPrefix(["apple", "appr", "appricot", "banana"]));

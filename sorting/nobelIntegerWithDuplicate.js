@@ -10,7 +10,7 @@
 // Space complexity: O(n)
 
 const nobelIntegerWithDuplicate = arr => {
-  let sortedArray = arr.sort();
+  arr = arr.sort();
   let prefixArray = new Array(arr.length);
   let count = 0;
   prefixArray[0] = 0;

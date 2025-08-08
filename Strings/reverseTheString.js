@@ -9,7 +9,6 @@ const reverseTheString = str => {
       word = str[i] + word;
       i--;
     }
-    console.log(word);
     if (word.length > 0) {
       if (reversedString.length > 0) {
         reversedString += " ";
